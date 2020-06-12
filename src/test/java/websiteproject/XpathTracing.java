@@ -19,8 +19,8 @@ public class XpathTracing {
 		WebElement hindi=driver.findElement(By.xpath("//a[@href='https://hi-in.facebook.com/']"));
 	Thread.sleep(3000);
 		hindi.click();  
-			WebElement urdu=driver.findElement(By.xpath("//a[@href='https://ur-pk.facebook.com/']"));
-			urdu.click();
+		WebElement urdu=driver.findElement(By.xpath("//a[@href='https://ur-pk.facebook.com/']"));
+		urdu.click();
 		WebElement signup=driver.findElement(By.xpath("//a[@href='/r.php']"));
 		Thread.sleep(3000);
 		signup.click();
