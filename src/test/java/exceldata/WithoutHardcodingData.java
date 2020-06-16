@@ -4,7 +4,7 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class WithoutHardcodingData {
-static String path;
+
 static XSSFWorkbook wb;
 static XSSFSheet sh;
 public WithoutHardcodingData(String excelPath,String sheetName)
@@ -20,11 +20,12 @@ public WithoutHardcodingData(String excelPath,String sheetName)
 	}
 }
 
-public static void getrowcount()
+public static int getrowcount()
 {
+	int rowscount=0;
 	try
 	{
-		int rowscount=sh.getPhysicalNumberOfRows();
+		 rowscount=sh.getPhysicalNumberOfRows();
 		System.out.println("no. of rows:"+rowscount);
 	}
 	catch (Exception e) {
@@ -33,12 +34,14 @@ public static void getrowcount()
 		System.out.println(e.getCause());
 		System.out.println(e.getStackTrace());
 		}
+	return rowscount;
 }
-public static void getcolcount()
+public static int getcolcount()
 {
+	int colcount=0;
 	try
 	{
-		int colcount=sh.getRow(0).getPhysicalNumberOfCells();
+		 colcount=sh.getRow(0).getPhysicalNumberOfCells();
 		System.out.println("no.of columns:"+colcount);
 	}
 	catch (Exception e) {
@@ -47,23 +50,24 @@ public static void getcolcount()
 		System.out.println(e.getCause());
 		System.out.println(e.getStackTrace());
 		}
+	return colcount;
 }
 
-public static void getcelldataString(int rowNum,int colNum)
+public static String getcelldataString(int rowNum,int colNum)
 	{
-		try
+	String celldata=null;	
+	try
 		{
 			
-		
-		
-	String celldata=sh.getRow(rowNum).getCell(colNum).getStringCellValue();
-	System.out.println(celldata);
+		 celldata=sh.getRow(rowNum).getCell(colNum).getStringCellValue();
+	//System.out.println(celldata);
 		}
 		catch (Exception e) {
 			System.out.println(e.getMessage());
 		System.out.println(e.getCause());
 		System.out.println(e.getStackTrace());
 		}
+		return celldata;
 	}
 public static void getcelldataNumber(int rowNum,int colNum)
 {
